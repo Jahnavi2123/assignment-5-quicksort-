@@ -49,9 +49,7 @@ Balanced partitions allow the algorithm to finish efficiently since the recursio
 
 The average case also runs in **O(n log n)**.
 
-Although the pivot will not perfectly divide the array every time, random input usually produces reasonably balanced partitions. Each recursive level still processes every element once, while the expected number of recursive levels remains close to **log n**.
-
-This explains why Quicksort performs very well in practice even though perfectly balanced partitions do not occur consistently.
+Although the pivot will not perfectly divide the array every time, random input usually produces reasonably balanced partitions. Although the pivot does not divide the array exactly in half every time, the partitions are reasonably balanced on average. Across the recursion tree, partitioning performs O(n) work for each approximate level, and the expected height of the tree is O(log n). Therefore, the expected running time is O(n log n).
 
 ---
 
@@ -105,6 +103,23 @@ The randomized implementation behaved much more consistently because the pivot s
 
 Overall, the benchmark results closely matched the theoretical analysis. The deterministic implementation demonstrated why pivot selection is important, while the randomized implementation showed how a small change can greatly improve the algorithm's practical performance.
 
+Size    Distribution   Deterministic     Randomized        
+100     Random         0.000019          0.000029          
+100     Sorted         0.000041          0.000024          
+100     Reverse        0.000070          0.000024          
+500     Random         0.000124          0.000174          
+500     Sorted         0.001269          0.000248          
+500     Reverse        0.002933          0.000276          
+1000    Random         0.000322          0.000372          
+1000    Sorted         RecursionError    0.000746          
+1000    Reverse        RecursionError    0.000343          
+2000    Random         0.000632          0.000879          
+2000    Sorted         RecursionError    0.000764          
+2000    Reverse        RecursionError    0.000754          
+5000    Random         0.001717          0.002228          
+5000    Sorted         RecursionError    0.002059          
+5000    Reverse        RecursionError    0.001955 
+
 ---
 
 # Design Decisions
@@ -124,3 +139,5 @@ This assignment demonstrated that Quicksort is not only affected by the number o
 The deterministic implementation highlighted how poor pivot choices can lead to quadratic running time, especially when the input is already ordered. The randomized implementation showed that introducing randomness significantly reduces the likelihood of this behavior while maintaining the same expected time complexity.
 
 Working through both implementations helped reinforce the relationship between algorithm design and practical performance. Although both versions share the same underlying algorithm, a relatively small implementation change produced noticeably more stable behavior across different datasets. This assignment also showed that evaluating an algorithm requires both theoretical analysis and experimental testing, since real-world performance depends on many factors beyond asymptotic complexity.
+
+Therefore, although the partitioning process itself is in place, the complete implementation uses O(n) additional space because it creates a copy of the input list. The recursion stack adds O(log n) space in the average case and O(n) in the worst case.

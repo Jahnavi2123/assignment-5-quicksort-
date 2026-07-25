@@ -75,3 +75,8 @@ The deterministic implementation performs well on random input but becomes much 
 The randomized implementation performs much more consistently across all datasets because randomly selecting the pivot makes it much less likely that poor partitions will occur repeatedly.
 
 Although both implementations have the same average-case time complexity of **O(n log n)**, randomization makes the algorithm much more reliable for real-world applications where the input order cannot always be predicted.
+
+## Results
+
+The complete benchmark table and detailed discussion are available in
+[report.md](report.md).

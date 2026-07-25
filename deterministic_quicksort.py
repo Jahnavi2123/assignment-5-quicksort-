@@ -81,6 +81,20 @@ def _partition(values: List[int], low: int, high: int) -> int:
 
     return pivot_index
 
+test_cases = [
+    [],
+    [5],
+    [3, 1, 2],
+    [4, 4, 4, 4],
+    [-3, 7, 0, -1, 5],
+    [10, 9, 8, 7, 6],
+]
+
+for values in test_cases:
+    assert deterministic_quicksort(values) == sorted(values)
+
+print("All deterministic Quicksort tests passed.")
+
 
 if __name__ == "__main__":
     sample = [8, 3, 1, 7, 0, 10, 2]
