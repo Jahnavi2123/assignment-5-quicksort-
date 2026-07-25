@@ -103,22 +103,27 @@ The randomized implementation behaved much more consistently because the pivot s
 
 Overall, the benchmark results closely matched the theoretical analysis. The deterministic implementation demonstrated why pivot selection is important, while the randomized implementation showed how a small change can greatly improve the algorithm's practical performance.
 
-Size    Distribution   Deterministic     Randomized        
-100     Random         0.000019          0.000029          
-100     Sorted         0.000041          0.000024          
-100     Reverse        0.000070          0.000024          
-500     Random         0.000124          0.000174          
-500     Sorted         0.001269          0.000248          
-500     Reverse        0.002933          0.000276          
-1000    Random         0.000322          0.000372          
-1000    Sorted         RecursionError    0.000746          
-1000    Reverse        RecursionError    0.000343          
-2000    Random         0.000632          0.000879          
-2000    Sorted         RecursionError    0.000764          
-2000    Reverse        RecursionError    0.000754          
-5000    Random         0.001717          0.002228          
-5000    Sorted         RecursionError    0.002059          
-5000    Reverse        RecursionError    0.001955 
+## Benchmark Results
+
+The benchmark was executed using random, sorted, and reverse-sorted datasets. Each reported value represents the median execution time across five runs.
+
+| Input Size | Distribution | Deterministic Quicksort (seconds) | Randomized Quicksort (seconds) |
+|------------|--------------|-----------------------------------:|-------------------------------:|
+| 100 | Random | | |
+| 100 | Sorted | | |
+| 100 | Reverse-Sorted | | |
+| 500 | Random | | |
+| 500 | Sorted | | |
+| 500 | Reverse-Sorted | | |
+| 1000 | Random | | |
+| 1000 | Sorted | | |
+| 1000 | Reverse-Sorted | | |
+| 2000 | Random | | |
+| 2000 | Sorted | | |
+| 2000 | Reverse-Sorted | | |
+| 5000 | Random | | |
+| 5000 | Sorted | | |
+| 5000 | Reverse-Sorted | | |
 
 ---
 
